@@ -2,25 +2,28 @@
 from tkinter import *
 from tkinter import Tk, ttk
 from tkinter import messagebox
+import customtkinter
+
 
 
 #Colors
 
 cor1 = "white"
-cor2 = "gold"
+cor2 = "#bfb911" #gold
 cor3 = "black"
 
 
 # Janela de login
-window = Tk()
+window = customtkinter.CTk()
 window.title     ("AI QUE LINDO - LOGIN")
 window.geometry  ('600x350') 
-window.iconphoto (False, PhotoImage(file="imagens/aiquelindo.png"))
+#window.iconphoto (PhotoImage(file="imagens/aiquelindo1.ico"))
 window.resizable (width=True,height=True)
 
 img = PhotoImage (file="imagens/aiquelindo.png")
 
-Label.logo = Label(window, image=img).pack(anchor="center")
+Label.logo = Label(window, image=img, width=600, height=350)
+Label.logo.place(x=0, y=0)
 
 
 #Configurando o frame cima
@@ -39,10 +42,10 @@ def verificar_senha():
         messagebox.showinfo("Login", "Seja bem vindo Admin !!!")
         
     elif credenciais[0] == nome and credenciais[1]== senha:	
-        messagebox.showinfo("Login", "Seja bem vindo de Volta" +credenciais[0])
+        messagebox.showinfo("Login", "Olá...Seja bem vindo de Volta" +credenciais[0])
         
     else:
-        messagebox.showwarning("Erro", "Verifique o nome e a senha")
+        messagebox.showwarning("Erro", "Verifique o Nome e/ou Senha")
 
 
 
