@@ -14,7 +14,7 @@ cor2 = "#bfb911" #gold
 cor3 = "black"
 
 customtkinter.set_appearance_mode("dark")
-customtkinter.set_default_color_theme("dark-blue")
+#customtkinter.set_default_color_theme("dark-blue")
 
 
 # Janela de login
@@ -27,8 +27,8 @@ window.resizable (width=True,height=True)
 
 img = PhotoImage (file="imagens/aiquelindo-487-383.png")
 
-Label.logo = Label(window, image=img, width=487, height=383)
-Label.logo.place(x=0, y=0)
+Label.logo = Label(window, image=img, width=487, height=383, border=None)
+Label.logo.pack()
 
 
 #Credenciais
@@ -43,22 +43,22 @@ def verificar_senha():
         
     elif credenciais[0] == nome and credenciais[1]== senha:	
         messagebox.showinfo("Login", "Olá...Seja bem vindo de Volta" +credenciais[0])
-        
+                
     else:
         messagebox.showwarning("Erro", "Verifique o Nome e/ou Senha")
 
 
 
 #Configurando Email/Login
-label_name = customtkinter.CTkLabel(window, width=20, height=10, text="Name or E-mail *", anchor=NW, font=('Ivy', 10))
-label_name.place(x=50, y=60)
-e_name = Entry(window, width=25, justify='left', font=('', 15), highlightthickness=1, relief=SOLID)
+label_name = customtkinter.CTkLabel(window, width=20, height=10, text="Name: *", anchor=NW, font=('Ivy', 12))
+label_name.place(x=50, y=80)
+e_name = customtkinter.CTkEntry(window, placeholder_text="Entry your Name", width=250, height=30, show="", justify='left', font=('', 10), border_width=0, corner_radius=10)
 e_name.place(x=50, y=100)
 
 #Configurando Password
-label_pass = customtkinter.CTkLabel(window, width=20, height=10, text="Password *", anchor=NW, font=('Ivy', 10))
-label_pass.place(x=50, y=150)
-e_pass = customtkinter.CTkEntry(window, width=250, height=30, show="*", justify='left', font=('', 15), border_width=0, corner_radius=10)
+label_pass = customtkinter.CTkLabel(window, width=20, height=10, text="Password *", anchor=NW, font=('Ivy', 12))
+label_pass.place(x=50, y=155)
+e_pass = customtkinter.CTkEntry(window, placeholder_text="Entry your Password" , width=250, height=30, show="*", justify='left', font=('', 10), border_width=0, corner_radius=10)
 e_pass.place(x=50, y=175)
 
 checkbox = customtkinter.CTkCheckBox(window, checkbox_height=13, checkbox_width=13 , text="Lembrar Login")
