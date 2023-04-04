@@ -4,20 +4,14 @@ from tkinter import Tk, ttk
 from tkinter import messagebox
 import customtkinter
 
-
-
-
 #Colors
 
-cor1 = "#FFFFFF"
+cor1 = "#FFFFFF" #white
 cor2 = "#cebd7f" #gold
-cor3 = "black"
-cor4 = "#1f1f1e" #transparente
-cor5 = "#262626"
+cor4 = "#1f1f1e" #black 
+
 
 customtkinter.set_appearance_mode("dark")
-#customtkinter.set_default_color_theme("dark-blue")
-
 
 # Janela de login
 window = Tk()
@@ -44,12 +38,10 @@ def verificar_senha():
         messagebox.showinfo("Login", "Seja bem vindo Admin !!!")
         
     elif credenciais[0] == nome and credenciais[1]== senha:	
-        messagebox.showinfo("Login", "Olá...Seja bem vindo de Volta" +credenciais[0])
+        messagebox.showinfo("Login", "Olá...Seja bem vindo de Volta " + credenciais[0])
                 
     else:
         messagebox.showwarning("Erro", "Verifique o Nome e/ou Senha")
-
-
 
 #Configurando Email/Login
 label_name = Label(window, width=5, height=2, text="Name: *", fg=cor1, font=('Ivy', 9), anchor=NW, background=cor4)
@@ -69,6 +61,14 @@ checkbox.place(x=100, y=230, anchor=CENTER)
 b_confirmar = customtkinter.CTkButton(window, command=verificar_senha, text="ENTRAR", width=150, height=32, border_width=0, corner_radius=10, bg_color='blue')
 b_confirmar.place(x=250, y=270, anchor=CENTER)
 
+#Criando função sair
+def exit():
+    window.destroy()
+    return
+
+# Cria um botão sair
+button_exit =  customtkinter.CTkButton(window, text="Exit", font=("Ivy", 14),  width=50, height=32, border_width=0, corner_radius=10, bg_color=cor4, command=exit)
+button_exit.place (x=440, y=360, anchor=CENTER)
 
 
 
